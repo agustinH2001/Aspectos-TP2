@@ -118,6 +118,7 @@ function optionSelected(answer){
     clearInterval(counterLine); //clear counterLine
     let userAns = answer.textContent; //getting user selected option
     let correcAns = questions[que_count].answer; //getting correct answer from array
+    let popupText = questions[que_count].popup;
     const allOptions = option_list.children.length; //getting all option items
     
     if(userAns == correcAns){ //if user selected option is equal to array's correct answer
@@ -143,24 +144,37 @@ function optionSelected(answer){
         option_list.children[i].classList.add("disabled"); //once user select an option then disabled all options
     }
     next_btn.classList.add("show"); //show the next button if user selected any option
+    alert(popupText)
 }
+
+// Función para mostrar la explicación
+function showExplanation(correctAnswer, explanationText) {
+    const explanation = document.querySelector(".explanation");
+    explanation.style.display = "block"; // Muestra la explicación
+    const explanationTextElement = document.querySelector(".explanation_text");
+    explanationTextElement.textContent = `La respuesta correcta es: ${correctAnswer}. ${explanationText}`;
+}
+
 
 function showResult(){
     info_box.classList.remove("activeInfo"); //hide info box
     quiz_box.classList.remove("activeQuiz"); //hide quiz box
     result_box.classList.add("activeResult"); //show result box
     const scoreText = result_box.querySelector(".score_text");
-    if (userScore > 3){ // if user scored more than 3
-        //creating a new span tag and passing the user score number and total question number
-        let scoreTag = '<span>and congrats! 🎉, You got <p>'+ userScore +'</p> out of <p>'+ questions.length +'</p></span>';
+    if (userScore == questions.length){ 
+        let scoreTag = '<span>y felicitaciones! 🎉, <p>'+ userScore +'</p> de <p>'+ questions.length +'</p> puntos!!!</span>';
         scoreText.innerHTML = scoreTag;  //adding new span tag inside score_Text
     }
-    else if(userScore > 1){ // if user scored more than 1
-        let scoreTag = '<span>and nice 😎, You got <p>'+ userScore +'</p> out of <p>'+ questions.length +'</p></span>';
+    else if(userScore > 2){ 
+        let scoreTag = '<span>y genial 😎, Lograste <p>'+ userScore +'</p> de <p>'+ questions.length +'</p> puntos</span>';
         scoreText.innerHTML = scoreTag;
     }
-    else{ // if user scored less than 1
-        let scoreTag = '<span>and sorry 😐, You got only <p>'+ userScore +'</p> out of <p>'+ questions.length +'</p></span>';
+    else if(userScore > 0){ 
+        let scoreTag = '<span>y bien 😒, Lograste <p>'+ userScore +'</p> de <p>'+ questions.length +'</p> puntos</span>';
+        scoreText.innerHTML = scoreTag;
+    }
+    else if(userScore == 0){
+        let scoreTag = '<span>y wow 😱, <p>'+ userScore +'</p> de <p>'+ questions.length +'</p> puntos</span>';
         scoreText.innerHTML = scoreTag;
     }
 }

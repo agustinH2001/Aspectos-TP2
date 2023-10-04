@@ -1,4 +1,3 @@
-<!-- Created By CodingNepal - www.codingnepalweb.com  -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aspectos Profesionales y Sociales</title>
     <link rel="stylesheet" href="style.css">
-    <!-- FontAweome CDN Link for Icons-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 </head>
 <body>
+<a href="index.php">
+    <h1>Seleccionar otro cuestionario</h1>
+</a>
     <!-- start Quiz button -->
     <div class="start_btn"><button>Empezar Cuestionario</button></div>
 
@@ -20,8 +21,6 @@
             <div class="info">1. Tienes <span>30 segundos</span> por pregunta.</div>
             <div class="info">2. No se puede cambiar la opción elegida.</div>
             <div class="info">3. No se puede elegir una vez termina el tiempo.</div>
-            <div class="info">4. No se puede salir del Quiz mientras juegas.</div>
-            <div class="info">5. Obtendrás puntos según tus respuestas correctas.</div>
         </div>
         <div class="buttons">
             <button class="quit">Salir</button>
@@ -73,10 +72,10 @@
     </div>
 
     <!-- Inside this JavaScript file I've inserted Questions and Options only -->
-    <script src="js/questions.js"></script>
+    <script src="js/questions1.js"></script>
 
     <!-- Inside this JavaScript file I've coded all Quiz Codes -->
-    <script src="js/script.js"></script>
+    <script src="js/script.js?v=1"></script>
 
 </body>
 </html>
